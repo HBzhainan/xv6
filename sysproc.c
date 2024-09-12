@@ -89,3 +89,16 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+
+// Newly added
+int sys_trace(void) {
+  int enable_trace;
+  if (argint(0, &enable_trace) < 0) {
+    return -1;
+  }
+  struct proc *p = myproc();  
+  p->tracing = enable_trace;
+  
+  return p->syscall_count;
+}

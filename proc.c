@@ -89,6 +89,10 @@ found:
   p->state = EMBRYO;
   p->pid = nextpid++;
 
+  //  Newly added
+  p->tracing = 0; 
+  p->syscall_count = 0; 
+
   release(&ptable.lock);
 
   // Allocate kernel stack.
