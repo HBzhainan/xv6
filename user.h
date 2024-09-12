@@ -40,3 +40,4 @@ int atoi(const char*);
 
 // newly added
 int trace(int);
+int date(struct rtcdate*);
