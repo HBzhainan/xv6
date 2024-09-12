@@ -105,6 +105,7 @@ extern int sys_write(void);
 extern int sys_uptime(void);
 // Newly added
 extern int sys_trace(void);
+extern int sys_date(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -130,6 +131,7 @@ static int (*syscalls[])(void) = {
 [SYS_close]   sys_close,
 // Newly added
 [SYS_trace]   sys_trace,
+[SYS_date]    sys_date,
 };
 
 // Added map to call names

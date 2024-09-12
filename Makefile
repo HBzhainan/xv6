@@ -181,6 +181,7 @@ UPROGS=\
 	_usertests\
 	_wc\
 	_test_project1\
+	_date\
 	# _zombie\
 	
 
@@ -256,6 +257,7 @@ EXTRA=\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
 	test_project1.c\
+	date.c\
 
 dist:
 	rm -rf dist

@@ -6,6 +6,8 @@
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
+#include "traps.h"
+#include "spinlock.h"
 
 int
 sys_fork(void)
@@ -101,4 +103,19 @@ int sys_trace(void) {
   p->tracing = enable_trace;
   
   return p->syscall_count;
+}
+
+int
+sys_date(void)
+{
+    struct rtcdate *r;
+
+    // Get the pointer to the user-provided rtcdate structure
+    if (argptr(0, (void*)&r, sizeof(*r)) < 0)
+        return -1;
+
+    // Populate the rtcdate structure with the current time
+    cmostime(r);
+
+    return 0;
 }
